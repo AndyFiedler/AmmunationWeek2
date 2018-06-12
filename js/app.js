@@ -8,20 +8,28 @@ var algonquinBlvd = {
     minCustomers: 23,
     maxCustomers: 65,
     avgCustomers: 6.3,
-
+    gunsPerHour: [],
     customerCount: function(){
         return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+    },
+    calculateGunsPerHour: function(){
+        for (var i = 0; i<15; i++){
+            this.gunsPerHour.push(Math.round(this.customerCount() * this.avgCustomers));
+        }
     }
-
 }
+algonquinBlvd.calculateGunsPerHour();
+console.log(algonquinBlvd.gunsPerHour);
+
 //East Vinewood, Los Santos
 var eastVinewood = {
     minCustomers: 3,
     maxCustomers: 24,
     avgCustomers: 1.2,
 
-
-
+    customerCount: function(){
+        return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+    }
 }
 //West Backlot City, Los Santos
 var westBacklotcity = {
@@ -29,8 +37,9 @@ var westBacklotcity = {
     maxCustomers: 38,
     avgCustomers: 3.7,
 
-
-
+    customerCount: function(){
+        return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+    }
 }
 //Palomino Freeway, Blaine County
 var palaminoFreeway = {
@@ -38,8 +47,9 @@ var palaminoFreeway = {
     maxCustomers: 38,
     avgCustomers: 2.3,
 
-
-
+    customerCount: function(){
+        return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+    }
 }
 //Great Ocean Highway, Paleto Bay
 var greatOceanhighway = {
@@ -47,6 +57,7 @@ var greatOceanhighway = {
     maxCustomers: 16,
     avgCustomers: 4.6,
 
-
-
+    customerCount: function(){
+        return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+    }
 }
