@@ -7,6 +7,7 @@ var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2p
 
 //Algonqiun Blvd, Sandy Shores
 var algonquinBlvd = {
+    name: "Algonquin Boulevard",
     minCustomers: 23,
     maxCustomers: 65,
     avgCustomers: 6.3,
@@ -18,17 +19,47 @@ var algonquinBlvd = {
     calculateGunsPerHour: function(){
         for (var i = 0; i<15; i++){
             this.gunsPerHour.push(Math.round(this.customerCount() * this.avgCustomers));
-        }
-
-        for{var i=0; i<algonquinBlvd.gunsPerHour.length; i++}
-            var numGuns = algonquinBlvd.gunsPerHour[i];
-            var gunElement = document.createElement('li');
-            gunElement.textcontent = numGuns + 'guns';
-            elem.appendChild(gunElement);           
+        }        
     }
 }
+var sumSales = 0; 
 algonquinBlvd.calculateGunsPerHour();
-console.log(algonquinBlvd.gunsPerHour);
+var algonquinPara = document.getElementById("algonquin");
+algonquinPara.textContent = algonquinBlvd.name;
+
+var algonquinElem = document.getElementById("algonquinSales");
+for(var i=0; i<algonquinBlvd.gunsPerHour.length; i++){
+    var numGuns = algonquinBlvd.gunsPerHour[i];
+    sumSales= sumSales + algonquinBlvd.gunsPerHour[i];
+    var gunElement = document.createElement('li');
+    gunElement.textContent =storeHours[i] + ': ' + numGuns + ' guns';
+    algonquinElem.appendChild(gunElement); 
+}  
+var sumSalesLi = document.createElement('li');
+sumSalesLi.textContent ='Total: ' + sumSales + ' guns';
+algonquinElem.appendChild(sumSalesLi);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //East Vinewood, Los Santos
 var eastVinewood = {
