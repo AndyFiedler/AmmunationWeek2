@@ -49,10 +49,10 @@ var eastVinewood = {
     minCustomers: 3,
     maxCustomers: 24,
     avgCustomers: 1.2,
-
+    gunsPerHour: [],
     customerCount: function(){
         return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
-    }
+    },
     //15=store hours per day
     calculateGunsPerHour: function(){
         for (var i = 0; i<15; i++){
@@ -71,7 +71,7 @@ for(var i=0; i<eastVinewood.gunsPerHour.length; i++){
     sumSales= sumSales + eastVinewood.gunsPerHour[i];
     var gunElement = document.createElement('li');
     gunElement.textContent =storeHours[i] + ': ' + numGuns + ' guns';
-    eastVinewood.appendChild(gunElement); 
+    eastVinewoodElem.appendChild(gunElement); 
 }  
 var sumSalesLi = document.createElement('li');
 sumSalesLi.textContent ='Total: ' + sumSales + ' guns';
@@ -88,19 +88,19 @@ var westBacklot = {
     gunsPerHour:[],
     customerCount: function(){
         return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+    },
+    //15=store hours per day
+    calculateGunsPerHour: function(){
+        for (var i = 0; i<15; i++){
+            this.gunsPerHour.push(Math.round(this.customerCount() * this.avgCustomers));
+        }        
     }
-}
-//15=store hours per day
-calculateGunsPerHour: function(){
-    for (var i = 0; i<15; i++){
-        this.gunsPerHour.push(Math.round(this.customerCount() * this.avgCustomers));
-    }        
 }
 
 var sumSales = 0; 
 westBacklot.calculateGunsPerHour();
 var westBacklotPara = document.getElementById("westBacklot");
-westBacklot.textContent = westBacklot.name;
+westBacklotPara.textContent = westBacklot.name;
 
 var westBacklotElem = document.getElementById("westBacklotSales");
 for(var i=0; i<westBacklot.gunsPerHour.length; i++){
@@ -126,17 +126,16 @@ var palaminoFreeway = {
 
     customerCount: function(){
         return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+    },
+    calculateGunsPerHour: function(){
+        for (var i = 0; i<15; i++){
+            this.gunsPerHour.push(Math.round(this.customerCount() * this.avgCustomers));
+        }        
     }
-}
-calculateGunsPerHour: function(){
-    for (var i = 0; i<15; i++){
-        this.gunsPerHour.push(Math.round(this.customerCount() * this.avgCustomers));
-    }        
-}
 }
 var sumSales = 0; 
 palaminoFreeway.calculateGunsPerHour();
-var palaminoFreeway = document.getElementById("palaminoFreeway");
+var palaminoFreewayPara = document.getElementById("palaminoFreeway");
 palaminoFreewayPara.textContent = palaminoFreeway.name;
 
 var palaminoFreewayElem = document.getElementById("palaminoFreewaySales");
@@ -163,12 +162,12 @@ var paletoBay = {
 
     customerCount: function(){
         return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+    },
+    calculateGunsPerHour: function(){
+        for (var i = 0; i<15; i++){
+            this.gunsPerHour.push(Math.round(this.customerCount() * this.avgCustomers));
+        }        
     }
-}
-calculateGunsPerHour: function(){
-    for (var i = 0; i<15; i++){
-        this.gunsPerHour.push(Math.round(this.customerCount() * this.avgCustomers));
-    }        
 }
 
 var sumSales = 0; 
